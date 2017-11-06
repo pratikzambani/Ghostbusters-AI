@@ -152,8 +152,6 @@ class ExactInference(InferenceModule):
         # print emissionModel
         # print pacmanPosition
         # print self.beliefs
-        "*** YOUR CODE HERE ***"
-        #util.raiseNotDefined()
 
         # Replace this code with a correct observation update
         # Be sure to handle the "jail" edge case where the ghost is eaten
@@ -167,8 +165,6 @@ class ExactInference(InferenceModule):
                     allPossible[p] = emissionModel[trueDistance] * self.beliefs[p]
         else:
             allPossible[self.getJailPosition()] = 1
-
-        "*** END YOUR CODE HERE ***"
 
         allPossible.normalize()
         self.beliefs = allPossible
@@ -226,7 +222,6 @@ class ExactInference(InferenceModule):
         are used and how they combine to give us a belief distribution over new
         positions after a time update from a particular position.
         """
-        "*** YOUR CODE HERE ***"
         allPossible = util.Counter()
         for oldPos in self.legalPositions:
             newPosDist = self.getPositionDistribution(self.setGhostPosition(gameState, oldPos))
