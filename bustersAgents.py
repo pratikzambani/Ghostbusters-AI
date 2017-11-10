@@ -166,25 +166,25 @@ class GreedyBustersAgent(BustersAgent):
 
         closestGhostDistance= sys.maxint
         mostlikelypositions=[]
-        "For every living ghost"
+        # "For every living ghost"
         for positionDistribution in livingGhostPositionDistributions:
             max = -1
-            "Iterating over the distributions to find the most likely position i.e the one with maximum belief"
+            # "Iterating over the distributions to find the most likely position i.e the one with maximum belief"
             for distribution in positionDistribution.items():
                 position = distribution[0]
                 belief= distribution[1]
                 if belief > max:
                     max= belief
                     mostlikelyposition = position
-            "Collecting all most likely positions"
+            # "Collecting all most likely positions"
             mostlikelypositions.append(mostlikelyposition)
-            "Finding the closest ghost using the most likely positions"
+            # "Finding the closest ghost using the most likely positions"
             distanceToGhost = self.distancer.getDistance(pacmanPosition, mostlikelyposition)
             if distanceToGhost< closestGhostDistance:
                 closestGhostDistance = distanceToGhost
                 closestGhostPosition = mostlikelyposition
 
-        "Finding the best action which will have minimum distance to ghost"
+        # "Finding the best action which will have minimum distance to ghost"
         closestGhostDistance=sys.maxint
         for action in legal:
             successorPosition = Actions.getSuccessor(pacmanPosition, action)
